@@ -4,18 +4,18 @@ Puede visitar la página [aquí](https://diegosalas-promart.web.app/)
 
 ## Pasos
 
-Clonar el projecto
+1. Clonar el projecto
 
-Instalar las dependencias
+2. Instalar las dependencias
 ```bash
 $ npm run install
 ```
-Crear archivo .env con la siguiente estructura
+3. Crear archivo .env con la siguiente estructura
 ```
 REACT_APP_SERVER_URL = direccion del servidor
 ```
 
-Ejecutar la aplicación
+4. Ejecutar la aplicación
 ```bash
 $ npm start
 ```
