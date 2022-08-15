@@ -1,7 +1,16 @@
 import React, { useState } from "react"
-import { Box, Button, Grid, TextField } from "@mui/material"
+import { Box, Button, Grid, styled, TextField } from "@mui/material"
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker"
 import moment from 'moment'
+
+const StyledTextField = styled(TextField)(() => ({
+  'label': {
+    fontSize: '16px'
+  },
+  'div': {
+    fontSize: '16px'
+  }
+}))
 
 const CustomerForm = (props) => {
   const [customer, setCustomer] = useState({
@@ -23,10 +32,10 @@ const CustomerForm = (props) => {
   }
 
   return (
-    <div>
+    <Box>
       <Grid container spacing={2} sx={{ paddingTop: "3rem" }}>
         <Grid item xs={6}>
-          <TextField
+          <StyledTextField
             id="name"
             label="Nombre"
             variant="outlined"
@@ -36,7 +45,7 @@ const CustomerForm = (props) => {
           />
         </Grid>
         <Grid item xs={6}>
-          <TextField
+          <StyledTextField
             id="lastName"
             label="Apellido"
             variant="outlined"
@@ -46,7 +55,7 @@ const CustomerForm = (props) => {
           />
         </Grid>
         <Grid item xs={6}>
-          <TextField
+          <StyledTextField
             id="age"
             label="Edad"
             variant="outlined"
@@ -63,7 +72,7 @@ const CustomerForm = (props) => {
             inputFormat="DD/MM/YYYY"
             value={customer.birthday}
             onChange={onChangeDate}
-            renderInput={(params) => <TextField {...params} fullWidth />}
+            renderInput={(params) => <StyledTextField {...params} fullWidth />}
           />
         </Grid>
       </Grid>
@@ -72,13 +81,13 @@ const CustomerForm = (props) => {
       >
         <Button
           variant="contained"
-          sx={{ backgroundColor: "orange" }}
+          sx={{ backgroundColor: "orange", fontSize: '16px' }}
           onClick={() => props.createCustomer(customer)}
         >
           Crear cliente
         </Button>
       </Box>
-    </div>
+    </Box>
   )
 }
 

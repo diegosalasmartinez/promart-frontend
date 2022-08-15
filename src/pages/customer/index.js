@@ -1,10 +1,22 @@
-import { useLocation, useParams } from "react-router-dom"
+import { Container } from "@mui/material"
+import { useFetchCustomer } from "../../hooks"
+import { useParams } from "react-router-dom"
+import Loading from "../../components/Loading"
+import CustomerInfo from "./CustomerInfo"
 
 const Customer = () => {
   const params = useParams()
-  console.log(params);
+  const { customer, deathDate, isLoading } = useFetchCustomer(params.id)
 
-  return <div>This is the customer</div>
+  return (
+    <Container>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <CustomerInfo customer={customer} deathDate={deathDate} />
+      )}
+    </Container>
+  )
 }
 
 export default Customer

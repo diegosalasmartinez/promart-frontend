@@ -16,7 +16,7 @@ const CreateCustomer = () => {
       birthday: customer.birthday.format()
     }
     await axios.post(
-      process.env.REACT_APP_SERVER_URL + "/people",
+      process.env.REACT_APP_SERVER_URL + "/customers",
       customerToSend
     )
     navigate("/")

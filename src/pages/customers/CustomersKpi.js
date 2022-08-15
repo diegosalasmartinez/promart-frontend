@@ -1,10 +1,11 @@
 import React from "react"
-import { Box, Grid, styled, Typography } from "@mui/material"
+import { Box, Grid, styled } from "@mui/material"
 
 const StyledBox = styled(Box)(({ theme }) => ({
   padding: "20px 40px",
   borderRadius: "20px",
-  boxShadow: "0px 8px 10px -3px rgba(0,0,0,0.1)"
+  boxShadow: "0px 8px 10px -3px rgba(0,0,0,0.1)",
+  fontSize: "16px"
 }))
 
 const CustomersKpi = (props) => {
