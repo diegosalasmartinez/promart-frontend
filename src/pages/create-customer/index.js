@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import { Box, CircularProgress, Container } from "@mui/material"
+import { Container } from "@mui/material"
 import CustomerForm from "./CustomerForm"
+import Loading from "../../components/Loading"
 
 const CreateCustomer = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -24,9 +25,7 @@ const CreateCustomer = () => {
   return (
     <Container maxWidth="lg">
       {isLoading ? (
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <CircularProgress />
-        </Box>
+        <Loading />
       ) : (
         <CustomerForm createCustomer={createCustomer} />
       )}

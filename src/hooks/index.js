@@ -4,7 +4,7 @@ import axios from "axios"
 export const useFetchCustomers = () => {
   const [customers, setCustomers] = useState([])
   const [kpi, setKpi] = useState({ mean: 0, std: 0 })
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const cancelToken = axios.CancelToken.source()
@@ -16,7 +16,7 @@ export const useFetchCustomers = () => {
       .then((res) => {
         setCustomers(res.data.people)
         setKpi({ mean: res.data.mean, std: res.data.std })
-        setIsLoading(true)
+        setIsLoading(false)
       })
       .catch((err) => {
         if (axios.isCancel(err)) {
