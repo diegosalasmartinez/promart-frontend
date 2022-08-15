@@ -1,20 +1,18 @@
-import { Container, Typography } from "@mui/material"
+import { Container } from "@mui/material"
 import { useFetchCustomers } from "../../hooks"
-import CustomersTable from "./CustomersTable"
+import Loading from "../../components/Loading"
+import CustomersInfo from "./CustomersInfo"
 
 const Customers = () => {
   const { customers, kpi, isLoading } = useFetchCustomers()
 
   return (
     <Container maxWidth="lg">
-      <Typography
-        variant="h4"
-        component="div"
-        sx={{ marginTop: "3rem", fontWeight: "700", color: "orange" }}
-      >
-        Lista de clientes
-      </Typography>
-      <CustomersTable customers={customers} />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <CustomersInfo customers={customers} kpi={kpi} />
+      )}
     </Container>
   )
 }
